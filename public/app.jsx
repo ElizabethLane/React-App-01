@@ -18,7 +18,7 @@ var GreeterForm = React.createClass({
 
     if (name.length > 0) {
       this.refs.name.value = '';
-
+      this.props.onNewName(name);
     }
   },
   render: function(){
@@ -58,15 +58,8 @@ var Greeter = React.createClass({
         <p> {message}</p>
 
         <GreeterMessage/>
-
-        <form onSubmit={this.onButtonClick}>
-          <input type='text' ref='name'/>
-          <button>Set Name</button>
-        </form>
-        <GreeterForm/>
+        <GreeterForm onNewName={this.handleNewName}/>
       </div>
-
-
     );
   }
 });
