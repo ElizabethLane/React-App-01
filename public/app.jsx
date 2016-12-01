@@ -11,9 +11,19 @@ var GreeterMessage = React.createClass({
 });
 
 var GreeterForm = React.createClass({
+  onFormSubmit: function(e){
+    e.preventDefault;
+
+    var name = this.refs.name.value;
+
+    if (name.length > 0) {
+      this.refs.name.value = '';
+
+    }
+  },
   render: function(){
     return (
-      <form>
+      <form onSubmit={this.onFormSubmit}>
         <input type='text' ref='name'/>
         <button>Set Name</button>
       </form>
@@ -33,18 +43,10 @@ var Greeter = React.createClass({
       }
     },
 
-  onButtonClick: function(e) {
-    e.preventDefault();
-
-    var nameRef = this.refs.name;
-    var name = nameRef.value;
-    nameRef.value = '';
-
-    if (typeof name === 'string' && name.length > 0){
-      this.setState({
-        name: name
-      });
-    }
+  handleNewName: function(name) {
+    this.setState({
+      name: name
+    });
   },
   render: function () {
     var name = this.state.name;
