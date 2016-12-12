@@ -1,57 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var GreeterMessage = require('./components/GreeterMessage');
+//Can leave off .jsx on module name, because in webpack config
+//specified extensions we want to support
+var GreeterForm = require('./components/GreeterForm');
 
-var GreeterMessage = React.createClass({
-    render:  function(){
-      var name = this.props.name;
-      var message = this.props.message;
-
-      return (
-        //This is JSX CODE
-        <div>
-          <h1>Hello {name}!</h1>
-          <p> {message} </p>
-        </div>
-      );
-    }
-});
-
-var GreeterForm = React.createClass({
-  onFormSubmit: function(e){
-    e.preventDefault;
-
-    var updates = {};
-    var name = this.refs.name.value;
-    var message = this.refs.message.value;
-
-    if (name.length > 0) {
-      this.refs.name.value = '';
-      updates.name = name;
-    }
-
-    if (message.length > 0){
-      this.refs.message.value = '';
-      updates.message = message;
-    }
-
-    this.props.onNewData(updates);
-  },
-  render: function(){
-    return (
-      <form onSubmit={this.onFormSubmit}>
-        <div>
-          <input type='text' ref='name' placehold="Enter name"/>
-        </div>
-        <div>
-          <textarea ref='message' placeholder="Enter message"></textarea>
-        </div>
-        <div>
-          <button>Submit</button>
-        </div>
-      </form>
-    );
-  }
-});
 var Greeter = React.createClass({
   getDefaultProps: function(){
     return {
