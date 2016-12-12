@@ -3,7 +3,6 @@ var ReactDOM = require('react-dom');
 var Greeter = require('./components/Greeter');
 
 var firstName = 'Liz';
-var message = "Welcome to the coolest message ever"
 
 ReactDOM.render(
   <Greeter name={firstName} message={message}/>,
