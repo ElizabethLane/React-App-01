@@ -51,7 +51,6 @@
 	var Greeter = __webpack_require__(159);
 
 	var firstName = 'Liz';
-	var message = "Welcome to the coolest message ever";
 
 	ReactDOM.render(React.createElement(Greeter, { name: firstName, message: message }),
 	//The "name" attribute is a prop
